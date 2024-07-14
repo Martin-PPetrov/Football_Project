@@ -8,8 +8,8 @@ import org.football_project.entities.enums.PositionEnum;
 @Entity
 @Getter
 @Setter
-@Table(name = "footballers")
-public class Footballer extends Person {
+@Table(name = "legends")
+public class Legend extends Person {
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -23,10 +23,6 @@ public class Footballer extends Person {
 
     @Column(name = "matches_count")
     private int matchesCount;
-
-    @ManyToOne
-    @JoinColumn(name = "club_id")
-    private Club currentClub;
 
     //TODO: all time clubs
 }

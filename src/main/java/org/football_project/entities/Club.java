@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,5 +24,15 @@ public class Club extends BaseEntity {
     private Country country;
 
     @OneToMany(mappedBy = "currentClub")
-    private Set<Footballer> footballers;
+    private Set<Footballer> footballers = new HashSet<>();
+
+    @OneToMany(mappedBy = "currentClub")
+    private Set<Manager> managers = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "club_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "competition_id", referencedColumnName = "id")
+    )
+    private Set<Competiton> competitons = new HashSet<>();
 }
