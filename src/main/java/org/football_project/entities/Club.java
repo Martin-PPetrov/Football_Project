@@ -29,10 +29,10 @@ public class Club extends BaseEntity {
     @OneToMany(mappedBy = "currentClub")
     private Set<Manager> managers = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             joinColumns = @JoinColumn(name = "club_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "competition_id", referencedColumnName = "id")
     )
-    private Set<Competiton> competitons = new HashSet<>();
+    private Set<Competiton> competitions = new HashSet<>();
 }
