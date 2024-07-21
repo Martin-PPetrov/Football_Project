@@ -1,14 +1,16 @@
 package org.football_project.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-@Table(name = "people")
-public class Person extends BaseEntity {
+@MappedSuperclass
+public abstract class Person extends BaseEntity {
 
     @Column
     private String name;
