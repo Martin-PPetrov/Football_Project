@@ -35,4 +35,7 @@ public class Club extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "competition_id", referencedColumnName = "id")
     )
     private Set<Competiton> competitions = new HashSet<>();
+
+    @ManyToMany(mappedBy = "allTimeClubs")
+    private Set<Footballer> allTimeFootballers;
 }

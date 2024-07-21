@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.football_project.entities.enums.PositionEnum;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -29,4 +32,12 @@ public class Footballer extends Person {
     private Club currentClub;
 
     //TODO: all time clubs
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "footballer_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "club_id", referencedColumnName = "id")
+    )
+    private Set<Club> allTimeClubs = new HashSet<>();
+
 }
