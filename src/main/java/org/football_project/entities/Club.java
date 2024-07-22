@@ -38,4 +38,11 @@ public class Club extends BaseEntity {
 
     @ManyToMany(mappedBy = "allTimeClubs")
     private Set<Footballer> allTimeFootballers;
+
+    @ManyToMany(mappedBy = "allTimeClubs")
+    private Set<Legend> allTimeLegends;
+
+    @ManyToMany(mappedBy = "allTimeClubs")
+    private Set<Manager> allTimeManagers;
+
 }
