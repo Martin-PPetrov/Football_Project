@@ -26,6 +26,18 @@
 
                             </th:block>
 
+                            <th:block th:if="${@userHelperService.isAuthenticated()}">
+                                <li>
+                                    <a class="dropdown-item" th:href="@{/users/profile}">Profile</a>
+                                </li>
+                            </th:block>
+
+                            <th:block th:if="${@userHelperService.hasRole('ADMIN')}">
+                                <li>
+                                    <a class="dropdown-item" th:href="/">Admin</a>
+                                </li>
+                            </th:block>
+
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
