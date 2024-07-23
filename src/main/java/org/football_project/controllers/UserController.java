@@ -2,6 +2,7 @@ package org.football_project.controllers;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.football_project.dtos.UserLoginDto;
 import org.football_project.dtos.UserRegisterDTO;
 import org.football_project.services.UserService;
 import org.springframework.stereotype.Controller;
@@ -45,6 +46,25 @@ public class UserController {
         userService.register(userRegisterDTO);
 
         return "redirect:/users/login";
+    }
+
+    @GetMapping("/login")
+    public ModelAndView viewLogin() {
+        ModelAndView modelAndView = new ModelAndView("login");
+
+        modelAndView.addObject("loginData", new UserLoginDto());
+
+        return modelAndView;
+    }
+
+    @GetMapping("/login-error")
+    public ModelAndView viewLoginError() {
+        ModelAndView modelAndView = new ModelAndView("login");
+
+        modelAndView.addObject("showErrorMessage", true);
+        modelAndView.addObject("loginData", new UserLoginDto());
+
+        return modelAndView;
     }
 
     @GetMapping("/profile")
