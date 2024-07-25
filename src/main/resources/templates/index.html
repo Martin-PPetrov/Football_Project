@@ -16,6 +16,14 @@
             </div>
         </div>
 
+        <th:block th:if="${@userHelperService.isAuthenticated()}">
+            <div class="container">
+                <div class="text-center mt-5">
+<!--                    TODO: welcome message-->
+                </div>
+            </div>
+        </th:block>
+
 <!--        &lt;!&ndash; Bootstrap core JS&ndash;&gt;-->
 <!--        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>-->
 <!--        &lt;!&ndash; Core theme JS&ndash;&gt;-->
