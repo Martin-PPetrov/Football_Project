@@ -1,0 +1,27 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+<body>
+
+<header th:replace="fragments/header"></header>
+
+<div class="container">
+    <div class="text-center mt-5">
+        <form th:method="POST" th:action="@{/footballers/add}">
+            <button class="btn btn-primary btn-block w-50" type="submit" style="margin-bottom: 14px">Add Footballer</button>
+        </form>
+
+        <form th:method="POST" th:action="@{/legends/add}">
+            <button class="btn btn-primary btn-block w-50" type="submit" style="margin-bottom: 14px">Add Legend</button>
+        </form>
+
+        <form th:method="POST" th:action="@{/managers/add}">
+            <button class="btn btn-primary btn-block w-50" type="submit" style="margin-bottom: 14px">Add Manager</button>
+        </form>
+    </div>
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>
