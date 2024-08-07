@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FootballerRepository extends JpaRepository<Footballer, Long> {
+
+    Long deleteFootballerByName(String name);
+
 }

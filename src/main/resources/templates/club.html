@@ -8,16 +8,40 @@
 
 <div class="container">
     <div class="text-center mt-5">
-        <form th:method="POST" th:action="@{/footballers/add}">
-            <button class="btn btn-primary btn-block w-50" type="submit" style="margin-bottom: 14px">Add Footballer</button>
+        <form th:method="GET" th:action="@{/footballers/add-footballer}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">Add Footballer</button>
         </form>
 
-        <form th:method="POST" th:action="@{/legends/add}">
-            <button class="btn btn-primary btn-block w-50" type="submit" style="margin-bottom: 14px">Add Legend</button>
+        <form th:method="GET" th:action="@{/footballers/view-footballers}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">View Footballers</button>
         </form>
 
-        <form th:method="POST" th:action="@{/managers/add}">
-            <button class="btn btn-primary btn-block w-50" type="submit" style="margin-bottom: 14px">Add Manager</button>
+        <form th:method="GET" th:action="@{/footballers/delete-footballer}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">Delete Footballer</button>
+        </form>
+
+        <form th:method="GET" th:action="@{/legends/add-legend}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">Add Legend</button>
+        </form>
+
+        <form th:method="GET" th:action="@{/legends/view-legends}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">View Legends</button>
+        </form>
+
+        <form th:method="GET" th:action="@{/legends/delete-legend}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">Delete Legend</button>
+        </form>
+
+        <form th:method="GET" th:action="@{/managers/add-manager}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">Add Manager</button>
+        </form>
+
+        <form th:method="GET" th:action="@{/managers/view-managers}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">View Managers</button>
+        </form>
+
+        <form th:method="GET" th:action="@{/managers/delete-manager}">
+            <button class="btn btn-primary btn-block w-50" style="margin-bottom: 14px">Delete Manager</button>
         </form>
     </div>
 </div>

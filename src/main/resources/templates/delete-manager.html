@@ -1,0 +1,31 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+<body>
+
+<header th:replace="fragments/header"></header>
+
+<div class="row justify-content-center ">
+        <h1 class="text-center">Delete a manager</h1>
+
+        <h3 class="text-center" th:if="${@managerService.getAllManagers().isEmpty()}">No managers found</h3>
+
+        <div th:each="singleManager : ${allManagers}">
+            <div style="border: inset">
+                <h2 th:text="'Name: ' + ${singleManager.name}"></h2>
+
+                <form
+                        th:action="@{/managers/delete-manager/{name}(name = ${singleManager.name})}"
+                        th:method="DELETE"
+                >
+                    <button type="submit" class="ml-3 text-danger">Remove</button>
+                </form>
+            </div>
+        </div>
+
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

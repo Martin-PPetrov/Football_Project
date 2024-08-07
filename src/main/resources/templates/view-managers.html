@@ -1,0 +1,29 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+<body>
+
+<header th:replace="fragments/header"></header>
+
+<div class="wrapper">
+    <h1 class="text-center">View Managers</h1>
+
+    <h2 class="text-center" th:if="${@managerService.getAllManagers().isEmpty()}">No managers found</h2>
+    <section class="road">
+        <div th:each="singleManager : ${allManagers}">
+            <div style="border: inset">
+                <h2 th:text="'Name: ' + ${singleManager.name}"></h2>
+                <h2 th:text="'Age: ' + ${singleManager.age}"></h2>
+                <h2 th:text="'Title: ' + ${singleManager.title}"></h2>
+                <h2 th:text="'Manager number: ' + ${allManagers.indexOf(singleManager) + 1}
+                + '/'
+                + ${allManagers.size()}"></h2>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+<body>
+
+<header th:replace="fragments/header"></header>
+
+<div class="wrapper">
+    <h1 class="text-center">View Legends</h1>
+
+    <h2 class="text-center" th:if="${@legendService.getAllLegends().isEmpty()}">No legends found</h2>
+    <section class="road">
+        <div th:each="singleLegend : ${allLegends}">
+            <div style="border: inset">
+                <h2 th:text="'Name: ' + ${singleLegend.name}"></h2>
+                <h2 th:text="'Age: ' + ${singleLegend.age}"></h2>
+                <h2 th:text="'Position: ' + ${singleLegend.position}"></h2>
+                <h2 th:text="'Goals: ' + ${singleLegend.goalsCount}"></h2>
+                <h2 th:text="'Assists: ' + ${singleLegend.assistsCount}"></h2>
+                <h2 th:text="'Matches: ' + ${singleLegend.matchesCount}"></h2>
+                <h2 th:text="'Legend number: ' + ${allLegends.indexOf(singleLegend) + 1}
+                + '/'
+                + ${allLegends.size()}"></h2>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

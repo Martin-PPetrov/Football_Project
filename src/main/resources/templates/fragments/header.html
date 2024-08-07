@@ -10,34 +10,34 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/}" th:text="#{nav_bar_home}">Home</a>
                     </li>
                     <th:block th:if="${@userHelperService.isAuthenticated()}">
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/club}">Club</a>
+                            <a class="nav-link" th:href="@{/club}" th:text="#{nav_bar_club}">Club</a>
                         </li>
                     </th:block>
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{/about}" th:text="#{nav_bar_about}">About</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                           data-bs-toggle="dropdown" aria-expanded="false" th:text="#{nav_bar_menu}">Menu</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                             <th:block th:unless="${@userHelperService.isAuthenticated()}">
                                 <li>
-                                    <a class="dropdown-item" th:href="@{/users/register}">Register</a>
+                                    <a class="dropdown-item" th:href="@{/users/register}" th:text="#{nav_bar_login_register}">Register</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" th:href="@{/users/login}">Login</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" th:href="@{/about}">About</a>
+                                    <a class="dropdown-item" th:href="@{/users/login}" th:text="#{nav_bar_login}">Login</a>
                                 </li>
 
                             </th:block>
 
                             <th:block th:if="${@userHelperService.isAuthenticated()}">
-                                <li>
-                                    <a class="dropdown-item" th:href="@{/users/profile}">Profile</a>
+                                <li th:if="${@userHelperService.hasRole('ADMIN')}">
+                                    <a class="dropdown-item" th:href="@{/users/profile}" th:text="#{nav_bar_profile}">Profile</a>
                                 </li>
                                 <li>
                                     <form
@@ -45,19 +45,27 @@
                                             th:action="@{/users/logout}"
                                     >
                                         <a class="dropdown-item">
-                                            <button type="submit">Logout</button>
+                                            <button type="submit" th:text="#{nav_bar_logout}">Logout</button>
                                         </a>
                                     </form>
                                 </li>
-                                <li th:if="${@userHelperService.hasRole('ADMIN')}">
-                                    <a href="/">Admin</a>
+                                <li>
+                                    <hr class="dropdown-divider"/>
                                 </li>
                             </th:block>
 
-                            <li>
-                                <hr class="dropdown-divider"/>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li class="nav-item">
+                                <form th:method="get">
+                                    <label class="text-white" for="lang" th:text="#{nav_bar_language}">Language</label>
+                                    <select
+                                            id="lang"
+                                            name="lang"
+                                            onchange="this.form.submit()">
+                                        <option value="en_US" th:selected="${#locale.toString()} == 'en_US'">English</option>
+                                        <option value="bg_BG" th:selected="${#locale.toString()} == 'bg_BG'">Български</option>
+                                    </select>
+                                </form>
+<!--                            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
                         </ul>
                     </li>
                 </ul>

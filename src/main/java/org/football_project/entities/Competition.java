@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "competitions")
-public class Competiton extends BaseEntity {
+public class Competition extends BaseEntity {
 
     @Column
     private String name;

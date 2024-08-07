@@ -1,0 +1,31 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+<body>
+
+<header th:replace="fragments/header"></header>
+
+<div class="container">
+
+    <div class="text-center mt-5">
+        <h1>This page is only visible to admin users</h1>
+
+        <section class="road">
+            <div th:object="${profileData}">
+                <div style="border: inset">
+                    <h2 th:text="'Username: ' + ${profileData.username}"></h2>
+                    <h2 th:text="'First name: ' + ${profileData.firstName}"></h2>
+                    <h2 th:text="'Last name: ' + ${profileData.lastName}"></h2>
+                    <h2 th:text="'Age: ' + ${profileData.age}"></h2>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>

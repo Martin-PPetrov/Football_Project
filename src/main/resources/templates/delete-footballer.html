@@ -1,0 +1,42 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+<body>
+
+<header th:replace="fragments/header"></header>
+
+<div class="row justify-content-center ">
+<!--    <form id="delete-footballer-form"-->
+<!--          class="w-50 rounded text-black mt-5"-->
+<!--          th:action="@{/footballers/delete-footballer/{name}(name = ${deleteFootballer.name})}"-->
+<!--          th:method="DELETE"-->
+<!--    >-->
+        <h1 class="text-center">Delete a footballer</h1>
+
+        <h3 class="text-center" th:if="${@footballerService.getAllFootballers().isEmpty()}">No footballers found</h3>
+
+        <div th:each="singleFootballer : ${allFootballers}">
+            <div style="border: inset">
+                <h2 th:text="'Name: ' + ${singleFootballer.name}"></h2>
+
+                <form
+                        th:action="@{/footballers/delete-footballer/{name}(name = ${singleFootballer.name})}"
+                        th:method="DELETE"
+                >
+                    <button type="submit" class="ml-3 text-danger">Remove</button>
+                </form>
+            </div>
+
+            <!--            <div class="d-flex justify-content-center mt-4">-->
+            <!--                <button th:href="@{/footballers/delete-footballer/{name}(name = ${deleteFootballer.name})}"-->
+            <!--                        class="btn btn-primary btn-block w-50"-->
+            <!--                        type="submit">Delete Footballer</button>-->
+            <!--            </div>-->
+        </div>
+
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

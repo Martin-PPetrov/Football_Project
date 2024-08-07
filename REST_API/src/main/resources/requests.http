@@ -1,0 +1,10 @@
+#GET http://localhost:8080/api/competitions/find/competition
+
+#POST http://localhost:8080/api/competitions/add-competition
+#Content-Type: application/json
+#
+#{
+#  "name": "Competition"
+#}
+
+#DELETE http://localhost:8080/api/competitions/delete-competition/competition

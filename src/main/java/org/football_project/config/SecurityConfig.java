@@ -18,9 +18,10 @@ public class SecurityConfig {
                                     .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                     .requestMatchers("/",
                                             "/users/login",
-                                            "users/login-error",
+                                            "/users/login-error",
                                             "/users/register",
-                                            "/about").permitAll()
+                                            "/about",
+                                            "/api/competitions").permitAll()
                                     .anyRequest().authenticated();
                         }
                 )

@@ -1,0 +1,32 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+<body>
+
+<header th:replace="fragments/header"></header>
+
+<div class="wrapper">
+    <h1 class="text-center">View Footballers</h1>
+
+    <h2 class="text-center" th:if="${@footballerService.getAllFootballers().isEmpty()}">No footballers found</h2>
+    <section class="road">
+        <div th:each="singleFootballer : ${allFootballers}">
+            <div style="border: inset">
+                <h2 th:text="'Name: ' + ${singleFootballer.name}"></h2>
+                <h2 th:text="'Age: ' + ${singleFootballer.age}"></h2>
+                <h2 th:text="'Position: ' + ${singleFootballer.position}"></h2>
+                <h2 th:text="'Goals: ' + ${singleFootballer.goalsCount}"></h2>
+                <h2 th:text="'Assists: ' + ${singleFootballer.assistsCount}"></h2>
+                <h2 th:text="'Matches: ' + ${singleFootballer.matchesCount}"></h2>
+                <h2 th:text="'Footballer number: ' + ${allFootballers.indexOf(singleFootballer) + 1}
+                + '/'
+                + ${allFootballers.size()}"></h2>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

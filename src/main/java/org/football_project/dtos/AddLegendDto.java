@@ -8,7 +8,7 @@ import lombok.Data;
 import org.football_project.entities.enums.PositionEnum;
 
 @Data
-public class AddFootballerDto {
+public class AddLegendDto {
 
     @NotNull
     @Size(min = 3, max = 50)
@@ -16,7 +16,7 @@ public class AddFootballerDto {
 
     @NotNull
     @Min(18)
-    @Max(45)
+    @Max(100)
     private int age;
 
     @NotNull
